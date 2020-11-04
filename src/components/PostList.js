@@ -1,16 +1,17 @@
-import React from "react";
-import {PostDetail} from "./PostDetail";
-import { useSelector } from "react-redux";
+import React from 'react';
+import { PostDetail } from './PostDetail';
+import { useSelector } from 'react-redux';
 
-export const PostList = () => {
-  const { posts } = useSelector(state => state)
+export const PostList = ({ setPost }) => {
+  const { posts } = useSelector((state) => state);
   return (
-    <div className="container">
-      <div className="row">
+    <div className='container'>
+      <div className='row'>
         {posts &&
-          posts.map((post) => <PostDetail post={post} key={post.id} />)}
+          posts.map((post) => (
+            <PostDetail setPost={setPost} post={post} key={post.id} />
+          ))}
       </div>
     </div>
   );
-}
-
+};
